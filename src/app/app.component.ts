@@ -9,13 +9,11 @@ export class AppComponent {
   name = 'Angular';
 
 constructor(public _jokeService:JokeService){
-
 }
-  public getData() {
 
-    this._jokeService.  data$.subscribe((e) => {
+public getData() {
+    this._jokeService.data$.subscribe((e) => {
      console.log(e)
     });
-
   }
 }

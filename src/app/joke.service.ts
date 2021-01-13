@@ -3,23 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { shareReplay, map, tap } from 'rxjs/operators';
 
-
-const API_ENDPOINT = 'https://api.icndb.com/jokes/random/1?limitTo=[nerdy]';
-
-
 @Injectable()
 export class JokeService {
-
+  // global level decldeclaration 
+  API_ENDPOINT = 'https://api.icndb.com/jokes/random/1?limitTo=[nerdy]';
   data$: Observable<any>;
+  // end
   constructor(private http: HttpClient) {
-
-    this.data$ = this.aaa().pipe(tap(() => console.log(3)), shareReplay(1))
-
+    this.data$ = this.getData().pipe(tap(() => console.log(3)), shareReplay(1))
   }
 
-
-  public aaa() {
-
-    return this.http.get(API_ENDPOINT)
+  getData() {
+    return this.http.get(this.API_ENDPOINT)
   }
 }
