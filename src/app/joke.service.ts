@@ -10,7 +10,7 @@ export class JokeService {
   data$: Observable<any>;
   // end
   constructor(private http: HttpClient) {
-    this.data$ = this.getData().pipe(tap(() => console.log(3)), shareReplay(1))
+    this.data$ = this.getData().pipe(tap(() => console.log(3)), shareReplay())
   }
 
   getData() {
